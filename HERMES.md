@@ -12,7 +12,7 @@ Kopi is Melvern's clipboard manager for macOS — a copy of CopyClip 2's feature
 ## Commands
 ```bash
 swift build                     # debug build
-swift test                      # 22 KopiKit tests
+swift test                      # 22 KopiKit tests (CI can't run these: macOS runners need a paid plan for private repos)
 scripts/build-app.sh            # release -> build/Kopi.app (stable self-signed identity in ~/.kopi-signing)
 scripts/build-app.sh --install  # copy to /Applications + launch
 scripts/make-signing-identity.sh  # one-time; keeps the Accessibility grant across rebuilds

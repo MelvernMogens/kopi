@@ -7,13 +7,11 @@ on:
 
 jobs:
   check:
-    runs-on: macos-15
+    # macOS runners aren't available for private repos on a free plan, so build+test
+    # runs locally (swift build && swift test, see HERMES.md). CI guards what CI can.
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build
-        run: swift build
-      - name: Test
-        run: swift test
 
       - name: Fail if a secret got committed
         run: |
