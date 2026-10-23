@@ -7,11 +7,13 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      # {{SETUP_STEPS}} — language runtime + dependency install
-      # {{CHECK_STEPS}} — the project's real typecheck / lint / test commands
+      - name: Build
+        run: swift build
+      - name: Test
+        run: swift test
 
       - name: Fail if a secret got committed
         run: |
